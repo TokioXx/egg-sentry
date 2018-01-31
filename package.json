@@ -52,7 +52,10 @@
   "bugs": {
     "url": "https://github.com/eggjs/egg/issues"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "homepage": "https://github.com/eggjs/egg-sentry#readme",
-  "author": "",
+  "author": "freebyron",
   "license": "MIT"
 }
