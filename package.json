@@ -11,7 +11,7 @@
     "egg-plugin"
   ],
   "dependencies": {
-    "raven": "^2.2.1"
+    "@sentry/node": "^6.2.3"
   },
   "devDependencies": {
     "autod": "^2.8.0",
