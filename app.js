@@ -15,7 +15,7 @@ module.exports = app => {
   app.on('error', (e, ctx) => {
     const {
       user = {}, extra = {}, tags = {}, judgeError = () => true,
-    } = new app.serviceClasses.sentry(ctx);
+    } = app.serviceClasses.sentry ? new app.serviceClasses.sentry(ctx) : {};
 
     if (!judgeError(e)) {
       return;
