@@ -50,12 +50,12 @@
     "url": "git+https://github.com/freebyron/egg-sentry.git"
   },
   "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
+    "url": "https://github.com/freebyron/egg-sentry/issues"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "homepage": "https://github.com/eggjs/egg-sentry#readme",
+  "homepage": "https://github.com/freebyron/egg-sentry#readme",
   "author": "freebyron",
   "license": "MIT"
 }
