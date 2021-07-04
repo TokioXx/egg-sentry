@@ -1,6 +1,6 @@
 'use strict';
 
-const Raven = require('raven');
+const Sentry = require('@sentry/node');
 const assert = require('assert');
 
 module.exports = app => {
@@ -8,22 +8,22 @@ module.exports = app => {
 
   assert(config.dsn, '[egg-sentry][config] dsn is required');
 
-  Raven.config(config.dsn).install();
+  Sentry.init({
+    dsn: config.dsn,
+  });
 
   app.on('error', (e, ctx) => {
     const {
       user = {}, extra = {}, tags = {}, judgeError = () => true,
-    } = new app.serviceClasses.sentry(ctx);
+    } = app.serviceClasses.sentry ? new app.serviceClasses.sentry(ctx) : {};
 
     if (!judgeError(e)) {
       return;
     }
 
-    Raven.setContext({
-      user,
-      extra,
-    });
-    Raven.captureException(e, {
+    Sentry.setUser(user);
+    Sentry.setExtras(extra);
+    Sentry.captureException(e, {
       tags,
     });
   });
